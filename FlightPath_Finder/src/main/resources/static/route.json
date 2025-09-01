@@ -1,0 +1,267 @@
+{
+    "result": "success",
+    "routes": [
+        [
+            {
+                "IATA_code": "MAA",
+                "ICAO_code": "VOMM",
+                "airport_name": "Chennai International Airport",
+                "city_name": "Chennai",
+                "latitude": "12.990005",
+                "longitude": "80.169296"
+            },
+            {
+                "IATA_code": "GOI",
+                "ICAO_code": "VAGO",
+                "airport_name": "Dabolim Airport",
+                "city_name": "Goa",
+                "latitude": "15.3808",
+                "longitude": "73.831398"
+            },
+            {
+                "IATA_code": "STV",
+                "ICAO_code": "VASU",
+                "airport_name": "Surat Airport",
+                "city_name": "Surat",
+                "latitude": "21.1141",
+                "longitude": "72.741798"
+            }
+        ],
+        [
+            {
+                "IATA_code": "MAA",
+                "ICAO_code": "VOMM",
+                "airport_name": "Chennai International Airport",
+                "city_name": "Chennai",
+                "latitude": "12.990005",
+                "longitude": "80.169296"
+            },
+            {
+                "IATA_code": "BOM",
+                "ICAO_code": "VABB",
+                "airport_name": "Chhatrapati Shivaji International Airport",
+                "city_name": "Mumbai",
+                "latitude": "19.0886993408",
+                "longitude": "72.8678970337"
+            },
+            {
+                "IATA_code": "STV",
+                "ICAO_code": "VASU",
+                "airport_name": "Surat Airport",
+                "city_name": "Surat",
+                "latitude": "21.1141",
+                "longitude": "72.741798"
+            }
+        ],
+        [
+            {
+                "IATA_code": "MAA",
+                "ICAO_code": "VOMM",
+                "airport_name": "Chennai International Airport",
+                "city_name": "Chennai",
+                "latitude": "12.990005",
+                "longitude": "80.169296"
+            },
+            {
+                "IATA_code": "JAI",
+                "ICAO_code": "VIJP",
+                "airport_name": "Sanganeer Airport",
+                "city_name": "Jaipur",
+                "latitude": "26.8242",
+                "longitude": "75.812202"
+            },
+            {
+                "IATA_code": "STV",
+                "ICAO_code": "VASU",
+                "airport_name": "Surat Airport",
+                "city_name": "Surat",
+                "latitude": "21.1141",
+                "longitude": "72.741798"
+            }
+        ],
+        [
+            {
+                "IATA_code": "MAA",
+                "ICAO_code": "VOMM",
+                "airport_name": "Chennai International Airport",
+                "city_name": "Chennai",
+                "latitude": "12.990005",
+                "longitude": "80.169296"
+            },
+            {
+                "IATA_code": "BBI",
+                "ICAO_code": "VEBS",
+                "airport_name": "Bhubaneswar Airport",
+                "city_name": "Bhubaneswar",
+                "latitude": "20.2444000244",
+                "longitude": "85.8178024292"
+            },
+            {
+                "IATA_code": "STV",
+                "ICAO_code": "VASU",
+                "airport_name": "Surat Airport",
+                "city_name": "Surat",
+                "latitude": "21.1141",
+                "longitude": "72.741798"
+            }
+        ],
+        [
+            {
+                "IATA_code": "MAA",
+                "ICAO_code": "VOMM",
+                "airport_name": "Chennai International Airport",
+                "city_name": "Chennai",
+                "latitude": "12.990005",
+                "longitude": "80.169296"
+            },
+            {
+                "IATA_code": "DEL",
+                "ICAO_code": "VIDP",
+                "airport_name": "Indira Gandhi International Airport",
+                "city_name": "New Delhi",
+                "latitude": "28.55563",
+                "longitude": "77.09519"
+            },
+            {
+                "IATA_code": "STV",
+                "ICAO_code": "VASU",
+                "airport_name": "Surat Airport",
+                "city_name": "Surat",
+                "latitude": "21.1141",
+                "longitude": "72.741798"
+            }
+        ],
+        [
+            {
+                "IATA_code": "MAA",
+                "ICAO_code": "VOMM",
+                "airport_name": "Chennai International Airport",
+                "city_name": "Chennai",
+                "latitude": "12.990005",
+                "longitude": "80.169296"
+            },
+            {
+                "IATA_code": "BLR",
+                "ICAO_code": "VOBG",
+                "airport_name": "Bengaluru International Airport",
+                "city_name": "Bangalore",
+                "latitude": "13.1979",
+                "longitude": "77.706299"
+            },
+            {
+                "IATA_code": "STV",
+                "ICAO_code": "VASU",
+                "airport_name": "Surat Airport",
+                "city_name": "Surat",
+                "latitude": "21.1141",
+                "longitude": "72.741798"
+            }
+        ],
+        [
+            {
+                "IATA_code": "MAA",
+                "ICAO_code": "VOMM",
+                "airport_name": "Chennai International Airport",
+                "city_name": "Chennai",
+                "latitude": "12.990005",
+                "longitude": "80.169296"
+            },
+            {
+                "IATA_code": "PAT",
+                "ICAO_code": "VEPT",
+                "airport_name": "Patna Airport",
+                "city_name": "Patna",
+                "latitude": "25.591299",
+                "longitude": "85.087997"
+            },
+            {
+                "IATA_code": "STV",
+                "ICAO_code": "VASU",
+                "airport_name": "Surat Airport",
+                "city_name": "Surat",
+                "latitude": "21.1141",
+                "longitude": "72.741798"
+            }
+        ],
+        [
+            {
+                "IATA_code": "MAA",
+                "ICAO_code": "VOMM",
+                "airport_name": "Chennai International Airport",
+                "city_name": "Chennai",
+                "latitude": "12.990005",
+                "longitude": "80.169296"
+            },
+            {
+                "IATA_code": "CCU",
+                "ICAO_code": "VECC",
+                "airport_name": "Netaji Subhash Chandra Bose International Airport",
+                "city_name": "Kolkata",
+                "latitude": "22.654699",
+                "longitude": "88.446701"
+            },
+            {
+                "IATA_code": "STV",
+                "ICAO_code": "VASU",
+                "airport_name": "Surat Airport",
+                "city_name": "Surat",
+                "latitude": "21.1141",
+                "longitude": "72.741798"
+            }
+        ],
+        [
+            {
+                "IATA_code": "MAA",
+                "ICAO_code": "VOMM",
+                "airport_name": "Chennai International Airport",
+                "city_name": "Chennai",
+                "latitude": "12.990005",
+                "longitude": "80.169296"
+            },
+            {
+                "IATA_code": "HYD",
+                "ICAO_code": "VOHY",
+                "airport_name": "Hyderabad International Airport",
+                "city_name": "Hyderabad",
+                "latitude": "17.231318",
+                "longitude": "78.429855"
+            },
+            {
+                "IATA_code": "STV",
+                "ICAO_code": "VASU",
+                "airport_name": "Surat Airport",
+                "city_name": "Surat",
+                "latitude": "21.1141",
+                "longitude": "72.741798"
+            }
+        ],
+        [
+            {
+                "IATA_code": "MAA",
+                "ICAO_code": "VOMM",
+                "airport_name": "Chennai International Airport",
+                "city_name": "Chennai",
+                "latitude": "12.990005",
+                "longitude": "80.169296"
+            },
+            {
+                "IATA_code": "PNQ",
+                "ICAO_code": "VAPO",
+                "airport_name": "Lohegaon Airport",
+                "city_name": "Pune",
+                "latitude": "18.5821",
+                "longitude": "73.919701"
+            },
+            {
+                "IATA_code": "STV",
+                "ICAO_code": "VASU",
+                "airport_name": "Surat Airport",
+                "city_name": "Surat",
+                "latitude": "21.1141",
+                "longitude": "72.741798"
+            }
+        ]
+    ],
+    "origin": "MAA",
+    "destination": "STV"
+}
