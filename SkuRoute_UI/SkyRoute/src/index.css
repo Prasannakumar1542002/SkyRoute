@@ -1,0 +1,70 @@
+@import "leaflet/dist/leaflet.css";
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* removes scrollbars */
+}
+
+.pulse-dot {
+  width: 10px;   /* smaller ball */
+  height: 10px;
+  border-radius: 50%;
+  position: relative;
+  background: radial-gradient(circle at 30% 30%, #4f9cff, #1e3a8a);
+  box-shadow: 0 0 6px rgba(79, 156, 255, 0.9);
+  animation: colorShift 4s infinite alternate ease-in-out;
+}
+
+.pulse-dot::before,
+.pulse-dot::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: currentColor;
+  transform: translate(-50%, -50%) scale(1);
+  animation: pulse 2.5s infinite;
+  opacity: 0.6;
+}
+
+.pulse-dot::after {
+  animation-delay: 1.25s; /* second wave delay */
+}
+
+@keyframes pulse {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+}
+
+@keyframes colorShift {
+  0% {
+    color: #3b82f6; /* blue */
+    background: radial-gradient(circle at 30% 30%, #60a5fa, #1e3a8a);
+    box-shadow: 0 0 8px #3b82f6;
+  }
+  33% {
+    color: #a855f7; /* purple */
+    background: radial-gradient(circle at 30% 30%, #c084fc, #6b21a8);
+    box-shadow: 0 0 8px #a855f7;
+  }
+  66% {
+    color: #06b6d4; /* cyan */
+    background: radial-gradient(circle at 30% 30%, #67e8f9, #164e63);
+    box-shadow: 0 0 8px #06b6d4;
+  }
+  100% {
+    color: #3b82f6; /* back to blue */
+    background: radial-gradient(circle at 30% 30%, #60a5fa, #1e3a8a);
+    box-shadow: 0 0 8px #3b82f6;
+  }
+}
