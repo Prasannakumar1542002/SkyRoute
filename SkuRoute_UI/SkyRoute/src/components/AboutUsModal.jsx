@@ -39,10 +39,10 @@ const AboutUsModal = ({ isOpen, setIsOpen }) => {
                         </p>
                         <p className="mt-4 text-gray-700 leading-relaxed text-center">
                             This application leverages <span className="font-semibold">Dijkstra's Algorithm </span>
-                            to efficiently compute the shortest path across aviation routes,
-                            demonstrating the integration of graph theory with real-world
+                            to determine the shortest path by providing routes with the fewest connection stops
+                            to the destination, showcasing the application of graph theory in real-world
                             travel network optimization.
-                        </p><br/>
+                        </p><br />
                         <p className="text-sm text-gray-500 italic text-center mb-2">
                             *The airline details displayed are based on the 2024 aviation reports and flight data.*
                         </p>

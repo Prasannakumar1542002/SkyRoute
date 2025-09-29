@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { MapContainer, TileLayer, Marker, Popup, useMap, ZoomControl } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import logo from "../assets/logo2.png";
+import antenna from "../assets/broadcast_rm.gif";
 import source from "../assets/source2.png";
 import destination from "../assets/destinationMarker.png";
 import airplane from "../assets/flight.png";
@@ -11,8 +12,8 @@ import "leaflet-ant-path";
 import { antPath } from "leaflet-ant-path";
 import "leaflet-rotatedmarker";
 import AirportSelect from "./AirportSelect";
-import DemoProvider from "./DemoProvider";
-
+import "animate.css";
+import Swal from "sweetalert2";
 
 
 const customIcon = L.icon({
@@ -74,11 +75,34 @@ const SkyMap = () => {
   useEffect(() => {
     console.log("selectedSource : ", selectedSource);
     console.log("selectedDestination : ", selectedDestination);
-    if(selectedDestination == null || selectedDestination == "" || selectedDestination == undefined){
+    if (selectedDestination == null || selectedDestination == "" || selectedDestination == undefined) {
       setRoutes([]);
     }
     if ((selectedSource == null || selectedSource == "" || selectedSource == undefined) && (selectedDestination != null && selectedDestination != "" && selectedDestination != undefined)) {
-      alert("Please Choose the Source");
+      // alert("Please Choose the Source");
+      Swal.fire({
+        icon: "error",
+        title: "<span style='color:#e74c3c; font-size:24px; font-weight:700;'>Error</span>",
+        html: "<p style='font-size:16px; color:#444;'>Please choose the source first.</p>",
+        background: "#fff",
+        showClass: {
+          popup: "animate__animated animate__zoomIn faster"
+        },
+        hideClass: {
+          popup: "animate__animated animate__fadeOutUp faster"
+        },
+        iconColor: "#e74c3c",
+        confirmButtonText: "Got it",
+        buttonsStyling: false,
+        customClass: {
+          popup: "rounded-2xl shadow-2xl p-6",
+          confirmButton:
+            "bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg font-semibold transition-all",
+          icon: "animate__animated animate__shakeX animate__faster", // 🔥 animate the icon
+        },
+      });
+
+
       setSelectedDestination("");
       setRoutes([]);
     } else {
@@ -96,10 +120,59 @@ const SkyMap = () => {
         .then((data) => {
           if (data?.routes) {
             setRoutes(data.routes);
-            data.routes && data.routes.length == 0 ? alert("No flights available from " + selectedSource + " to " + selectedDestination) : ""
+            data.routes && data.routes.length == 0 ? Swal.fire({
+              icon: "error",
+              title: "<span style='color:#e74c3c; font-size:24px; font-weight:700;'>Error</span>",
+              html: "<p style='font-size:16px; color:#444;'>No flights available from " + getCityNameFromCode(selectedSource) + " to " + getCityNameFromCode(selectedDestination) + "</p>",
+              background: "#fff",
+              showClass: {
+                popup: "animate__animated animate__zoomIn faster"
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp faster"
+              },
+              iconColor: "#e74c3c",
+              confirmButtonText: "Got it",
+              buttonsStyling: false,
+              customClass: {
+                popup: "rounded-2xl shadow-2xl p-6",
+                confirmButton:
+                  "bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg font-semibold transition-all",
+                icon: "animate__animated animate__shakeX animate__faster", // 🔥 animate the icon
+              },
+            }) : ""
             data.routes && data.routes.length == 0 ? setSelectedDestination("") : ""
             data.routes && data.routes.length == 0 ? setSelectedSource("") : ""
           }
+          console.log(selectedSource + " : " + selectedDestination);
+
+          if (selectedSource == selectedDestination && selectedSource != null && selectedDestination != null && selectedSource != undefined && selectedDestination != undefined && selectedSource != "" && selectedDestination != "") {
+            Swal.fire({
+              icon: "error",
+              title: "<span style='color:#e74c3c; font-size:24px; font-weight:700;'>Error</span>",
+              html: "<p style='font-size:16px; color:#444;'>Source and Destination cannot be same</p>",
+              background: "#fff",
+              showClass: {
+                popup: "animate__animated animate__zoomIn faster"
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp faster"
+              },
+              iconColor: "#e74c3c",
+              confirmButtonText: "Got it",
+              buttonsStyling: false,
+              customClass: {
+                popup: "rounded-2xl shadow-2xl p-6",
+                confirmButton:
+                  "bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg font-semibold transition-all",
+                icon: "animate__animated animate__shakeX animate__faster", // 🔥 animate the icon
+              },
+            });
+            setSelectedDestination("");
+            setSelectedSource("");
+          }
+
+
         })
         .catch((err) => console.error("Error loading routes:", err));
     }
@@ -108,7 +181,7 @@ const SkyMap = () => {
   useEffect(() => {
     console.log("selectedSource : ", selectedSource);
     console.log("selectedDestination : ", selectedDestination);
-    if(selectedSource == null || selectedSource == "" || selectedSource == undefined){
+    if (selectedSource == null || selectedSource == "" || selectedSource == undefined) {
       setRoutes([]);
     }
     if (selectedDestination != null && selectedDestination != "" && selectedDestination != undefined) {
@@ -126,8 +199,54 @@ const SkyMap = () => {
         .then((data) => {
           if (data?.routes) {
             setRoutes(data.routes);
-            data.routes && data.routes.length == 0 ? alert("No flights available from " + selectedSource + " to " + selectedDestination) : ""
+            data.routes && data.routes.length == 0 ? Swal.fire({
+              icon: "error",
+              title: "<span style='color:#e74c3c; font-size:24px; font-weight:700;'>Error</span>",
+              html: "<p style='font-size:16px; color:#444;'>No flights available from " + getCityNameFromCode(selectedSource) + " to " + getCityNameFromCode(selectedDestination) + "</p>",
+              background: "#fff",
+              showClass: {
+                popup: "animate__animated animate__zoomIn faster"
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp faster"
+              },
+              iconColor: "#e74c3c",
+              confirmButtonText: "Got it",
+              buttonsStyling: false,
+              customClass: {
+                popup: "rounded-2xl shadow-2xl p-6",
+                confirmButton:
+                  "bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg font-semibold transition-all",
+                icon: "animate__animated animate__shakeX animate__faster", // 🔥 animate the icon
+              },
+            }) : ""
           }
+          if (selectedSource == selectedDestination && selectedSource != null && selectedDestination != null && selectedSource != undefined && selectedDestination != undefined && selectedSource != "" && selectedDestination != "") {
+            Swal.fire({
+              icon: "error",
+              title: "<span style='color:#e74c3c; font-size:24px; font-weight:700;'>Error</span>",
+              html: "<p style='font-size:16px; color:#444;'>Source and Destination cannot be same</p>",
+              background: "#fff",
+              showClass: {
+                popup: "animate__animated animate__zoomIn faster"
+              },
+              hideClass: {
+                popup: "animate__animated animate__fadeOutUp faster"
+              },
+              iconColor: "#e74c3c",
+              confirmButtonText: "Got it",
+              buttonsStyling: false,
+              customClass: {
+                popup: "rounded-2xl shadow-2xl p-6",
+                confirmButton:
+                  "bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-lg font-semibold transition-all",
+                icon: "animate__animated animate__shakeX animate__faster", // 🔥 animate the icon
+              },
+            });
+            setSelectedDestination("");
+            setSelectedSource("");
+          }
+
         })
         .catch((err) => console.error("Error loading routes:", err));
     }
@@ -204,6 +323,10 @@ const SkyMap = () => {
     setSearch(s.name);
   };
 
+  const getCityNameFromCode = (code) => {
+    return Object.keys(airports).find(city => airports[city] === code);
+  };
+
   const tiles = useMemo(
     () => ({
       osm: {
@@ -223,24 +346,24 @@ const SkyMap = () => {
   );
 
   function calculateDistance(lat1, lon1, lat2, lon2) {
-  const R = 6371; // 🌍 Earth radius in kilometers
+    const R = 6371; // 🌍 Earth radius in kilometers
 
-  const toRad = (value) => (value * Math.PI) / 180;
+    const toRad = (value) => (value * Math.PI) / 180;
 
-  const dLat = toRad(lat2 - lat1);
-  const dLon = toRad(lon2 - lon1);
+    const dLat = toRad(lat2 - lat1);
+    const dLon = toRad(lon2 - lon1);
 
-  const a =
-    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-    Math.cos(toRad(lat1)) *
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(toRad(lat1)) *
       Math.cos(toRad(lat2)) *
       Math.sin(dLon / 2) *
       Math.sin(dLon / 2);
 
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-  return R * c; // 📏 distance in kilometers
-}
+    return R * c; // 📏 distance in kilometers
+  }
 
 
   return (
@@ -248,7 +371,9 @@ const SkyMap = () => {
       {/* Top Bar with Search */}
       <div style={styles.topbar}>
         <div className="skymaphome" style={styles.brand}>
-          <span className="pulse-dot" />
+          <span>
+            <img style={{ paddingBottom: "3px" }} src={antenna} alt="antenna" className="w-6 h-6" />
+          </span>
           <span style={styles.brandText}><a href="/">SkyMap</a></span>
         </div>
         <div style={styles.searchWrap}>
@@ -263,7 +388,7 @@ const SkyMap = () => {
         {/* Right-side actions */}
         <div style={styles.actions}>
           <button
-          className="drawer"
+            className="drawer"
             style={styles.roundBtn}
             title="Layers"
             onClick={() => setDrawerOpen((v) => !v)}
@@ -496,7 +621,7 @@ const styles = {
   brand: {
     display: "flex",
     alignItems: "center",
-    gap: 8,
+    gap: 2,
     padding: "8px 12px",
     borderRadius: 12,
     background: "rgba(255,255,255,0.9)",

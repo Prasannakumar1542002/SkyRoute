@@ -8,7 +8,7 @@ const steps = [
         selector: ".source",
         content: (
             <span>
-                Start here 👉 Pick your <strong>departure airport</strong> to begin planning your journey.
+                Start here Pick your <strong>departure airport</strong> to begin planning your journey.
             </span>
         ),
         position: "bottom",
@@ -17,7 +17,7 @@ const steps = [
         selector: ".destination",
         content: (
             <span>
-                Now choose your <strong>destination airport</strong> ✈️ to complete the route setup.
+                Now choose your <strong>destination airport</strong> to complete the route setup.
             </span>
         ),
         position: "bottom",
@@ -26,7 +26,7 @@ const steps = [
         selector: ".drawer",
         content: (
             <span>
-                Great! 🎉 Here you’ll see the <strong>shortest routes</strong> and its details.
+                Great! Here you’ll see the <strong>shortest routes</strong> and its details.
             </span>
         ),
         position: "left",
@@ -35,7 +35,7 @@ const steps = [
         selector: ".skymaphome",
         content: (
             <span>
-                Click here anytime to return <strong>back to Home</strong> 🏠
+                Click here anytime to return <strong>back to Home</strong>
             </span>
         ),
         position: "right",
@@ -44,7 +44,11 @@ const steps = [
         selector: "body",
         content: (
             <span>
-                You're all set! 🚀 Go ahead and explore <strong>SkyRoute</strong>. You can always reopen this demo with the help button below.
+                You're all set! Go ahead and explore <strong>SkyRoute</strong>.
+                Here, you’ll see the routes displayed on a map with markers for each stop,
+                including the source and destination. You can click on any marker to view
+                detailed information about that stop. You can always reopen this demo with
+                the help button below.
             </span>
         ),
         position: "center",
@@ -54,7 +58,7 @@ const steps = [
 
 // 🔹 A child component where we can safely use `useTour`
 function DemoControls() {
-    const { setIsOpen , setCurrentStep} = useTour();
+    const { setIsOpen, setCurrentStep } = useTour();
 
     const openDemo = () => {
         console.log("In the demo..");
