@@ -7,7 +7,7 @@ const styles = {
         minWidth: "220px",
         backgroundColor: "#fff",
         cursor: "pointer",
-        appearance: "none", // hide default arrow
+        appearance: "none",
         WebkitAppearance: "none",
         MozAppearance: "none",
         boxShadow: "0 3px 6px rgba(0,0,0,0.1)",
@@ -18,6 +18,9 @@ const styles = {
         backgroundPosition: "right 10px center",
         backgroundSize: "16px",
         outline: "none",
+        width: "100%",        // allow dropdown to scale
+        maxWidth: "300px",    // optional max width
+        boxSizing: "border-box",
     },
     dropdownHover: {
         borderColor: "#007BFF",
@@ -27,6 +30,10 @@ const styles = {
         display: "flex",
         gap: "14px",
         margin: "10px 0",
+        flexWrap: "wrap",      // allow wrapping on very small screens
+    },
+    dropdownContainer: {
+        flex: "1 1 220px",     // maintain min width but allow shrinking
     },
 };
 
@@ -49,38 +56,42 @@ const AirportSelect = ({
     return (
         <div style={styles.wrapper}>
             {/* Source */}
-            <select
-                className="source"
-                value={selectedSource}
-                onChange={(e) => setSelectedSource(e.target.value)}
-                style={getStyle("source")}
-                onMouseEnter={() => setHovered("source")}
-                onMouseLeave={() => setHovered(null)}
-            >
-                <option value="">Select Source</option>
-                {Object.entries(airports).map(([city, code]) => (
-                    <option key={code} value={code}>
-                        ✈ {city} ({code})
-                    </option>
-                ))}
-            </select>
+            <div style={styles.dropdownContainer}>
+                <select
+                    className="source"
+                    value={selectedSource}
+                    onChange={(e) => setSelectedSource(e.target.value)}
+                    style={getStyle("source")}
+                    onMouseEnter={() => setHovered("source")}
+                    onMouseLeave={() => setHovered(null)}
+                >
+                    <option value="">Select Source</option>
+                    {Object.entries(airports).map(([city, code]) => (
+                        <option key={code} value={code}>
+                            ✈ {city} ({code})
+                        </option>
+                    ))}
+                </select>
+            </div>
 
             {/* Destination */}
-            <select
-                className="destination"
-                value={selectedDestination}
-                onChange={(e) => setSelectedDestination(e.target.value)}
-                style={getStyle("destination")}
-                onMouseEnter={() => setHovered("destination")}
-                onMouseLeave={() => setHovered(null)}
-            >
-                <option value="">Select Destination</option>
-                {Object.entries(airports).map(([city, code]) => (
-                    <option key={code} value={code}>
-                        ✈ {city} ({code})
-                    </option>
-                ))}
-            </select>
+            <div style={styles.dropdownContainer}>
+                <select
+                    className="destination"
+                    value={selectedDestination}
+                    onChange={(e) => setSelectedDestination(e.target.value)}
+                    style={getStyle("destination")}
+                    onMouseEnter={() => setHovered("destination")}
+                    onMouseLeave={() => setHovered(null)}
+                >
+                    <option value="">Select Destination</option>
+                    {Object.entries(airports).map(([city, code]) => (
+                        <option key={code} value={code}>
+                            ✈ {city} ({code})
+                        </option>
+                    ))}
+                </select>
+            </div>
         </div>
     );
 };

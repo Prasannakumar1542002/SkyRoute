@@ -37,6 +37,8 @@ const destinationIcon = L.icon({
   popupAnchor: [0, -32]
 });
 
+const isMobile = window.innerWidth <= 600;
+
 // Small helper to animate to a new position
 const FlyTo = ({ center, zoom }) => {
   const map = useMap();
@@ -676,7 +678,7 @@ const styles = {
     fontSize: 14,
   },
 
-  actions: { display: "flex", alignItems: "center", marginLeft: 6 },
+  actions: { display: "flex", alignItems: "center", marginLeft: 6},
   roundBtn: {
     height: 40,
     minWidth: 40,
@@ -686,7 +688,8 @@ const styles = {
     background: "rgba(255,255,255,0.9)",
     boxShadow: "0 8px 24px rgba(0,0,0,0.08)",
     cursor: "pointer",
-    fontSize: 18
+    fontSize: 18,
+    marginTop: isMobile ? "117%" : "0%"
   },
 
   /* Drawer (right, glassmorphism) */
@@ -707,6 +710,7 @@ const styles = {
     borderTopLeftRadius: 16,
     borderBottomLeftRadius: 16,
     paddingBottom: 12,
+    marginTop: isMobile ? "13%" : "0%" 
   },
   drawerOpen: { right: 12 }, // slight gap from edge = premium feel
   drawerHeader: {
