@@ -2,7 +2,7 @@ package com.skyroute.flightpath.model;
 
 public class FlightPathConstants {
 	
-	public static final String PROPERTIES_PATH="src/main/resources/application.properties";
+	public static final String PROPERTIES_PATH="src/main/resources/mapping.properties";
 	public static final String CLASS_MAPPING="classMapping";
 	public static final String COMMA=",";
 	public static final String ALGORITHM="algorithm";

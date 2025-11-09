@@ -5,6 +5,7 @@ import SkyMap from './components/SkyMap'
 import SplashScreen from './components/SplashScreen'
 import DemoProvider from './components/DemoProvider';
 import SplashScreenMobile from './components/SplashScreenMobile';
+import FlightModal from './components/FlightModal';
 
 function App() {
   const [isDesktop, setIsDesktop] = useState(true);
@@ -50,8 +51,9 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path="/" element={isDesktop?<SplashScreen />:<SplashScreenMobile/>} />
+          <Route path="/" element={isDesktop ? <SplashScreen /> : <SplashScreenMobile />} />
           <Route path="/path" element={<DemoProvider />} />
+          <Route path="/flight" element={<FlightModal />} />
         </Routes>
       </Router>
     </>

@@ -27,10 +27,10 @@ public abstract class FeedImportServices {
 				is = new FileInputStream(externalFile);
 			} else {
 				// 2. Fallback: load from inside JAR (resources folder)
-				is = Thread.currentThread().getContextClassLoader().getResourceAsStream("application.properties");
+				is = Thread.currentThread().getContextClassLoader().getResourceAsStream("mapping.properties");
 
 				if (is == null) {
-					throw new FileNotFoundException("application.properties not found in classpath!");
+					throw new FileNotFoundException("mapping.properties not found in classpath!");
 				}
 			}
 

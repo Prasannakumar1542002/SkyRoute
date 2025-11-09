@@ -14,6 +14,7 @@ import "leaflet-rotatedmarker";
 import AirportSelect from "./AirportSelect";
 import "animate.css";
 import Swal from "sweetalert2";
+import FlightModal from "./FlightModal";
 
 
 const customIcon = L.icon({
@@ -57,7 +58,10 @@ const SkyMap = () => {
   const [flyTarget, setFlyTarget] = useState(null);
   const [base, setBase] = useState("osm"); // "osm" | "hot"
   const [routes, setRoutes] = useState([]);
+  const [flightData, setFlightData] = useState([]);
   const [airports, setAirports] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalKey, setModalKey] = useState("");
 
 
   const [selectedSource, setSelectedSource] = useState("");
@@ -122,6 +126,7 @@ const SkyMap = () => {
         .then((data) => {
           if (data?.routes) {
             setRoutes(data.routes);
+            setFlightData(data.flightData);
             data.routes && data.routes.length == 0 ? Swal.fire({
               icon: "error",
               title: "<span style='color:#e74c3c; font-size:24px; font-weight:700;'>Error</span>",
@@ -201,6 +206,7 @@ const SkyMap = () => {
         .then((data) => {
           if (data?.routes) {
             setRoutes(data.routes);
+            setFlightData(data.flightData);
             data.routes && data.routes.length == 0 ? Swal.fire({
               icon: "error",
               title: "<span style='color:#e74c3c; font-size:24px; font-weight:700;'>Error</span>",
@@ -410,7 +416,41 @@ const SkyMap = () => {
           {routes.length > 0 ? (
             routes.map((route, idx) => (
               <div key={idx} style={styles.routeCard}>
-                <div style={styles.routeHeader}>Route {idx + 1}</div>
+                <div style={{ position: "relative", padding: "8px 0" }}>
+                  <div style={{ fontWeight: "bold", fontSize: "1.1rem" }}>
+                    Route {idx + 1}
+                  </div>
+
+                  <button
+                    style={{
+                      position: "absolute",
+                      top: "0px",
+                      right: "0px",
+                      backgroundColor: "#4f46e5",
+                      color: "white",
+                      border: "none",
+                      borderRadius: "12px",
+                      padding: "4px 10px",
+                      cursor: "pointer",
+                      fontSize: "0.75rem",
+                      fontWeight: 500,
+                      boxShadow: "0 2px 5px rgba(0,0,0,0.15)",
+                      transition: "all 0.2s ease",
+                      height: "28px",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      whiteSpace: "nowrap",
+                    }}
+                    onMouseOver={(e) => (e.currentTarget.style.backgroundColor = "#4338ca")}
+                    onMouseOut={(e) => (e.currentTarget.style.backgroundColor = "#4f46e5")}
+                    onClick={() => {setModalKey(route.map(airport => airport.IATA_code).join(''));setModalOpen(true);}}
+                  >
+                    ✈ Flights
+                  </button>
+                  {/* <input id={Object.values(obj).join('')} style={{ display: "none" }} value={Object.values(obj).join('')} /> */}
+                </div>
+
                 {route.map((airport, i) => (
                   <div key={airport.IATA_code} style={styles.routeStep}>
                     {/* Circle */}
@@ -513,6 +553,7 @@ const SkyMap = () => {
           )}
         </MapContainer>
       </div>
+      <FlightModal open={modalOpen} onClose={() => setModalOpen(false)} routes={flightData[modalKey]} />
     </div>
   );
 };
@@ -678,7 +719,7 @@ const styles = {
     fontSize: 14,
   },
 
-  actions: { display: "flex", alignItems: "center", marginLeft: 6},
+  actions: { display: "flex", alignItems: "center", marginLeft: 6 },
   roundBtn: {
     height: 40,
     minWidth: 40,
@@ -710,7 +751,7 @@ const styles = {
     borderTopLeftRadius: 16,
     borderBottomLeftRadius: 16,
     paddingBottom: 12,
-    marginTop: isMobile ? "13%" : "0%" 
+    marginTop: isMobile ? "13%" : "0%"
   },
   drawerOpen: { right: 12 }, // slight gap from edge = premium feel
   drawerHeader: {

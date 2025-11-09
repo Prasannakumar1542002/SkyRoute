@@ -10,10 +10,10 @@ public interface PathFinder {
 
 	public static PathFinder loadAlgorithm() {
 		try (InputStream is = Thread.currentThread().getContextClassLoader()
-				.getResourceAsStream("application.properties")) {
+				.getResourceAsStream("mapping.properties")) {
 
 			if (is == null) {
-				throw new FileNotFoundException("application.properties not found in classpath!");
+				throw new FileNotFoundException("mapping.properties not found in classpath!");
 			}
 
 			Properties props = new Properties();

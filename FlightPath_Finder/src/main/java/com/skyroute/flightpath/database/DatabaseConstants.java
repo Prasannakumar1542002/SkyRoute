@@ -8,6 +8,7 @@ public final class DatabaseConstants {
 	//Table Names
 	public static final String AIRPORTS_TBL="airports";
 	public static final String AIRLINES_TBL="airlines";
+	public static final String FLIGHTS_TBL="flights";
 	
 	
 	//Column Names
@@ -20,4 +21,10 @@ public final class DatabaseConstants {
 	public static final String DESTINATION="destination";
 	public static final String FREQUENCY="frequency";
 	public static final String ROUTE="route";
+	public static final String IATA = "iata";
+    public static final String AIRLINE = "airline";
+    public static final String STATUS = "status";
+    public static final String PRICE_PER_KM = "pricePerKm";
+    public static final String LATITUDE = "latitude";
+    public static final String LONGITUDE = "longitude";
 }
